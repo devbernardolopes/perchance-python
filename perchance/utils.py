@@ -1,17 +1,28 @@
-import time
+import random
 
 
-class timeout:
-    def __init__(self, seconds: float, exc: Exception | None = None):
-        self._exc = exc or TimeoutError()
-        self._timeout = time.time() + seconds
+PLATFORMS = [
+    "X11; Linux x86_64",
+    "Windows NT 6.1; WOW64",
+    "Windows NT 10.0; Win64; x64",
+    "Macintosh; Intel Mac OS X 10_10_5",
+    "iPad; CPU OS 8_4_1 like Mac OS X",
+    "Linux; U; Android 4.4.3; en-us"
+]
+ENGINES = [
+    "AppleWebKit/537.36 (KHTML, like Gecko)",
+    "AppleWebKit/600.8.9 (KHTML, like Gecko)",
+    "Gecko/20100101",
+    "Trident/7.0; rv:11.0"
+]
+BROWSERS = [
+    "Chrome/45.0.2454.85 Safari/537.36",
+    "Chromium/37.0.2062.94 Chrome/37.0.2062.94 Safari/537.36",
+    "Firefox/40.0",
+    "Version/8.0.8 Safari/600.8.9",
+    "Mobile/12H321 Safari/600.1.4"
+]
 
-    async def __aenter__(self) -> "timeout":
-        return self
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        pass
-
-    async def tick(self):
-        if time.time() > self._timeout:
-            raise self._exc
+def generate_user_agent() -> str:
+    return f"Mozilla/5.0 ({random.choice(PLATFORMS)}) {random.choice(ENGINES)} {random.choice(BROWSERS)}"

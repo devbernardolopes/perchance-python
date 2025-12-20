@@ -1,14 +1,14 @@
-class BadRequestError(Exception):
+class PerchanceError(Exception):
     pass
 
 
-class ConnectionError(Exception):
+class ConnectionError(PerchanceError):
     pass
 
 
-class AuthError(Exception):
+class AuthenticationError(PerchanceError):
     pass
 
 
-class NotFoundError(Exception):
+class RateLimitError(PerchanceError):
     pass
