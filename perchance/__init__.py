@@ -1,3 +1,3 @@
 from .errors import *
-from .imagegen import *
-from .textgen import *
+from .imagegenerator import *
+from .textgenerator import *

@@ -1,15 +1,38 @@
-# tests
-test/
-test.py
-
-# python folders and files
+# Ignore Python bytecode files
 __pycache__/
-venv/
 *.pyc
+
+# Ignore Python package files
+.pytest_cache/
+
+# Ignore system and IDE-specific files
+*.pyo
+*.pyd
+.DS_Store
+.vscode/
+.idea/
+*.egg-info/
+*.egg
 dist/
 
-# ide files
-.vscode/
+# Ignore virtual environment folders
+venv/
+env/
+virtualenv/
+.venv/
 
-# utils
+# Ignore sensitive information
+.env
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore log files
+*.log
+
+# Ignore git extensions
 git-filter-repo
+
+# Ignore test files
+test.py

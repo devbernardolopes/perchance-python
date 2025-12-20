@@ -1,6 +1,6 @@
 # perchance
 [![pypi](https://img.shields.io/pypi/v/perchance)](https://pypi.org/project/perchance)
-[![python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/downloads)
+[![python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/downloads)
 [![BuyMeACoffee](https://img.shields.io/badge/support-yellow)](https://www.buymeacoffee.com/eeemoon)
 
 Unofficial Python API for [Perchance](https://perchance.org).
@@ -15,28 +15,29 @@ pip install perchance
 ### Text generation
 ```python
 import asyncio
-import perchance
+from perchance import TextGenerator
 
 async def main():
-    gen = perchance.TextGenerator()
-    prompt = "How far is the moon?"
+    async with TextGenerator() as gen:
+        prompt = "How far is the Moon?"
 
-    async for chunk in gen.text(prompt):
-        print(chunk, end='')
+        async for chunk in gen.stream(prompt):
+            print(chunk, end='')
 
 asyncio.run(main())
 ```
+
 ### Image generation
 ```python
 import asyncio
-import perchance
 from PIL import Image
+from perchance import ImageGenerator
 
 async def main():
-    gen = perchance.ImageGenerator()
-    prompt = "Fantasy landscape"
+    async with ImageGenerator() as gen:
+        prompt = "Fantasy landscape"
 
-    async with await gen.image(prompt) as result:
+        result = await gen.image(prompt, shape='landscape')
         binary = await result.download()
         image = Image.open(binary)
         image.show()
