@@ -32,6 +32,7 @@ class Generator:
             )
 
     async def close(self) -> None:
+        """Close the generator and release resources."""
         if self._context:
             await self._context.close()
         if self._browser:

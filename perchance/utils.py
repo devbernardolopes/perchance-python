@@ -1,7 +1,7 @@
 import random
 
 
-PLATFORMS = [
+PLATFORMS: list[str] = [
     "X11; Linux x86_64",
     "Windows NT 6.1; WOW64",
     "Windows NT 10.0; Win64; x64",
@@ -9,13 +9,13 @@ PLATFORMS = [
     "iPad; CPU OS 8_4_1 like Mac OS X",
     "Linux; U; Android 4.4.3; en-us"
 ]
-ENGINES = [
+ENGINES: list[str] = [
     "AppleWebKit/537.36 (KHTML, like Gecko)",
     "AppleWebKit/600.8.9 (KHTML, like Gecko)",
     "Gecko/20100101",
     "Trident/7.0; rv:11.0"
 ]
-BROWSERS = [
+BROWSERS: list[str] = [
     "Chrome/45.0.2454.85 Safari/537.36",
     "Chromium/37.0.2062.94 Chrome/37.0.2062.94 Safari/537.36",
     "Firefox/40.0",
