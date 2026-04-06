@@ -36,3 +36,5 @@ git-filter-repo
 
 # Ignore test files
 test.py
+
+logs/
