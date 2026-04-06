@@ -1,2 +1,4 @@
 aiofiles==25.1.0
+flask
+pillow
 playwright==1.57.0
